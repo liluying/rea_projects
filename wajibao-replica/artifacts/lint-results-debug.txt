@@ -1,25 +1,3 @@
-/workspace/rea_projects/wajibao-replica/app/build.gradle:8: Warning: Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details. [OldTargetApi]
-        targetSdk 34
-        ~~~~~~~~~~~~
-
-   Explanation for issues of type "OldTargetApi":
-   When your application runs on a version of Android that is more recent than
-   your targetSdkVersion specifies that it has been tested with, various
-   compatibility modes kick in. This ensures that your application continues
-   to work, but it may look out of place. For example, if the targetSdkVersion
-   is less than 14, your app may get an option button in the UI.
-
-   To fix this issue, set the targetSdkVersion to the highest available value.
-   Then test your app to make sure everything works correctly. You may want to
-   consult the compatibility notes to see what changes apply to each version
-   you are adding support for:
-   https://developer.android.com/reference/android/os/Build.VERSION_CODES.html
-   as well as follow this guide:
-   https://developer.android.com/distribute/best-practices/develop/target-sdk.
-   html
-
-   https://developer.android.com/distribute/best-practices/develop/target-sdk.html
-
 /workspace/rea_projects/wajibao-replica/app/src/main/AndroidManifest.xml:2: Warning: The attribute android:allowBackup is deprecated from Android 12 and higher and may be removed in future versions. Consider adding the attribute android:dataExtractionRules specifying an @xml resource which configures cloud backups and device transfers on Android 12 and higher. [DataExtractionRules]
     <application android:label="施工复现" android:icon="@drawable/ic_app" android:theme="@style/AppTheme" android:allowBackup="false" android:supportsRtl="true">
                                                                                                                            ~~~~~
@@ -40,7 +18,7 @@
    https://developer.android.com/about/versions/12/backup-restore#xml-changes
    https://goo.gle/DataExtractionRules
 
-/workspace/rea_projects/wajibao-replica/app/src/main/java/com/rea/wajibao/replica/ProfileView.java:42: Warning: Avoid object allocations during draw/layout operations (preallocate and reuse instead) [DrawAllocation]
+/workspace/rea_projects/wajibao-replica/app/src/main/java/com/rea/wajibao/replica/ProfileView.java:43: Warning: Avoid object allocations during draw/layout operations (preallocate and reuse instead) [DrawAllocation]
         Path line = new Path();
                     ~~~~~~~~~~
 
@@ -55,7 +33,7 @@
    Some methods allocate memory on your behalf (such as Bitmap.create), and
    these should be handled in the same way.
 
-/workspace/rea_projects/wajibao-replica/app/src/main/java/com/rea/wajibao/replica/MainActivity.java:253: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+/workspace/rea_projects/wajibao-replica/app/src/main/java/com/rea/wajibao/replica/MainActivity.java:336: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
                 change.set(value); label.setText(title + "  " + String.format(Locale.CHINA, "%.2f", value) + unit); renderGuidance();
                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -72,4 +50,4 @@
 
    https://developer.android.com/guide/topics/resources/localization.html
 
-0 errors, 4 warnings
+0 errors, 3 warnings

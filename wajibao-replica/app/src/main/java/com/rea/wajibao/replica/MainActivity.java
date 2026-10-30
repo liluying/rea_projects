@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.InputType;
@@ -22,6 +23,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.rea.wajibao.replica.core.*;
+import com.rea.wajibao.replica.nativecore.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.OutputStream;
@@ -48,6 +50,10 @@ public final class MainActivity extends Activity {
     private int stage = 1, previousStage = 1, frame;
     private Design.Mode mode = Design.Mode.LEVEL;
     private boolean playing;
+    private boolean useOriginal;
+    private OriginalProfile originalProfile;
+    private OriginalReplayController original;
+    private static final String CORE_HASH = "443a89c357df2277ea3e604db699188fc0b52eba3cd2306332f4e544b49bfa32";
     private double boom = 25, stick = -55, bucket = -75, lateral;
     private TextView deltaText, statusText, coordinateText, replayText;
     private Button playButton;
@@ -64,8 +70,10 @@ public final class MainActivity extends Activity {
     @Override public void onCreate(Bundle state) {
         super.onCreate(state); prefs = getSharedPreferences("replica", MODE_PRIVATE);
         records = new RecordStore(this); restore = state;
+        useOriginal = prefs.getBoolean("useOriginal", nativeAbiSupported());
         mode = Design.Mode.valueOf(prefs.getString("mode", "LEVEL"));
         if (state != null) {
+            useOriginal = state.getBoolean("useOriginal", useOriginal);
             for (String key : state.keySet()) if (key.startsWith("field_")) drafts.put(key.substring(6), state.getString(key));
             mode = Design.Mode.valueOf(state.getString("mode", mode.name()));
             stage = state.getInt("stage", 1); previousStage = state.getInt("previousStage", 1);
@@ -75,6 +83,17 @@ public final class MainActivity extends Activity {
         }
         loadConfig(); showPage();
     }
+    private static boolean nativeAbiSupported() {
+        for (String abi : Build.SUPPORTED_ABIS) if (abi.equals("arm64-v8a")) return true;
+        return false;
+    }
+    private OriginalProfile originalProfile() throws Exception {
+        if (originalProfile == null) originalProfile = new OriginalProfile(prefs.getString("originalProfile",
+                OriginalReplayController.asset(this, "native-profile.json")));
+        return originalProfile;
+    }
+    private String machineLabel() { return useOriginal && originalProfile != null ? originalProfile.name : machine.name; }
+    private void closeOriginal() { if (original != null) { original.close(); original = null; } }
     private void loadConfig() {
         machine = new MachineConfig(prefs.getString("machine", "演示挖掘机"),
                 saved("boomLength", 5.6), saved("stickLength", 2.9), saved("bucketLength", 1.35));
@@ -86,6 +105,7 @@ public final class MainActivity extends Activity {
         catch (NumberFormatException e) { return fallback; }
     }
     private void showPage() {
+        closeOriginal();
         fields.clear();
         LinearLayout root = new LinearLayout(this); root.setOrientation(LinearLayout.VERTICAL); root.setBackgroundColor(0xfff3f6f5);
         LinearLayout bar = new LinearLayout(this); bar.setGravity(Gravity.CENTER_VERTICAL);
@@ -99,13 +119,20 @@ public final class MainActivity extends Activity {
         content = new LinearLayout(this); content.setOrientation(LinearLayout.VERTICAL); content.setPadding(dp(20), dp(20), dp(20), dp(28));
         scroll.addView(content); root.addView(scroll, new LinearLayout.LayoutParams(-1, 0, 1)); setContentView(root);
         if (stage == 4) { historyPage(); return; }
-        label("离线演示设备  ·  无需连接 RTK", 12, TEAL, false);
+        label(useOriginal ? "原版 ARM64 核心  ·  需要 SDK 授权" : "平面演示算法  ·  离线模拟设备", 12, TEAL, false);
         label(stage == 1 ? "配置机械，开始施工" : stage == 2 ? "设置你的设计面" : design.label(), 27, INK, true);
         label("01 机械参数    →    02 设计参数    →    03 模拟施工", 12, MUTED, false);
         gap(16);
         if (stage == 1) machinePage(); else if (stage == 2) designPage(); else constructionPage();
     }
     private void machinePage() {
+        LinearLayout engine = card(); heading(engine, "计算引擎");
+        Button nativeButton = button((useOriginal ? "● " : "○ ") + "原版核心 · ARM64", false);
+        Button demoButton = button((!useOriginal ? "● " : "○ ") + "平面演示 · 不依赖 SDK", false);
+        nativeButton.setOnClickListener(v -> { rememberFields(); useOriginal = true; showPage(); });
+        demoButton.setOnClickListener(v -> { rememberFields(); useOriginal = false; showPage(); });
+        engine.addView(nativeButton); engine.addView(demoButton); content.addView(engine); gap(14);
+        if (useOriginal) { originalMachinePage(); return; }
         LinearLayout card = card(); heading(card, "机械与附件");
         field(card, "machine", "机械名称", machine.name, false);
         field(card, "boomLength", "大臂长度  m", f(machine.boom), true);
@@ -116,9 +143,35 @@ public final class MainActivity extends Activity {
         action("下一步 · 设计参数", true, () -> {
             try {
                 machine = new MachineConfig(value("machine"), number("boomLength"), number("stickLength"), number("bucketLength"));
+                prefs.edit().putBoolean("useOriginal", false).apply();
                 persistFields(); restore = null; stage = 2; showPage();
             } catch (IllegalArgumentException e) { showError(e.getMessage()); }
         });
+    }
+    private void originalMachinePage() {
+        LinearLayout card = card(); heading(card, "原版机械与附件标定");
+        card.addView(text("完整保留 32 项机械数值、7 项附件数值、安装侧和工作模式。校正角为弧度，尺寸为米。默认值来自原 APK 的双天线演示配置（模式 5）。", 13, MUTED, false));
+        try {
+            EditText json = new EditText(this); json.setTextSize(13); json.setMinLines(10); json.setGravity(Gravity.TOP);
+            json.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+            json.setText(drafts.containsKey("originalProfile") ? drafts.get("originalProfile") : new JSONObject(originalProfile().canonicalJson).toString(2));
+            json.setContentDescription("原版机械与附件参数 JSON"); fields.put("originalProfile", json);
+            card.addView(json, new LinearLayout.LayoutParams(-1, dp(320))); content.addView(card); gap(14);
+            action("检查原版核心状态", false, () -> {
+                try {
+                    if (!nativeAbiSupported()) throw new IllegalStateException("当前设备不支持 ARM64 原版库，请在 ARM64 手机或平板上检查。");
+                    JniWajiBackend backend = new JniWajiBackend();
+                    new AlertDialog.Builder(this).setTitle("原版核心状态").setMessage("libbcCore.so 已加载\n演示功能授权：" + (backend.demoAuthorized() ? "通过" : "未通过") + "\n原版施工功能授权：" + (com.bingce.utils.SdkUtils.isWjbValidate() ? "通过" : "未通过")).setPositiveButton("知道了", null).show();
+                } catch (Exception | LinkageError e) { showError(e.getMessage()); }
+            });
+            action("下一步 · 设计参数", true, () -> {
+                try {
+                    originalProfile = new OriginalProfile(value("originalProfile")); rememberFields();
+                    prefs.edit().putString("originalProfile", originalProfile.canonicalJson).putBoolean("useOriginal", true).apply();
+                    restore = null; stage = 2; showPage();
+                } catch (Exception e) { showError("原版参数无效：" + e.getMessage()); }
+            });
+        } catch (Exception e) { content.addView(card); showError("读取原版配置失败：" + e.getMessage()); }
     }
     private void designPage() {
         LinearLayout card = card(); heading(card, "选择施工模式");
@@ -151,8 +204,17 @@ public final class MainActivity extends Activity {
     private void constructionPage() {
         try { replay = new ReplaySource(this, mode); frame = Math.floorMod(frame, replay.count()); }
         catch (Exception e) { showError("无法读取演示数据：" + e.getMessage()); stage = 2; showPage(); return; }
+        if (useOriginal) {
+            try {
+                if (!nativeAbiSupported()) throw new IllegalStateException("原版核心仅支持 ARM64 设备。可返回机械参数显式选择平面演示。");
+                original = new OriginalReplayController(this, mode, originalProfile());
+                if (original.count() != replay.count()) throw new IllegalStateException("原版与演示回放帧数不一致");
+            } catch (Exception | LinkageError e) {
+                closeOriginal(); stage = 2; showPage(); showError(e.getMessage()); return;
+            }
+        }
         LinearLayout summary = card();
-        TextView machineName = text(machine.name + "  /  模拟机具", 14, MUTED, false); summary.addView(machineName);
+        TextView machineName = text(machineLabel() + (useOriginal ? "  /  原版机具核心" : "  /  模拟机具"), 14, MUTED, false); summary.addView(machineName);
         deltaText = text("", 39, TEAL, true); summary.addView(deltaText);
         statusText = text("", 15, INK, true); summary.addView(statusText);
         coordinateText = text("", 13, MUTED, false); coordinateText.setPadding(0, dp(10), 0, 0); summary.addView(coordinateText);
@@ -166,11 +228,16 @@ public final class MainActivity extends Activity {
         playback.addView(playButton, new LinearLayout.LayoutParams(0, dp(54), 1.4f));
         playback.addView(next, new LinearLayout.LayoutParams(0, dp(54), 1));
         playback.addView(reset, new LinearLayout.LayoutParams(0, dp(54), 1)); content.addView(playback); gap(14);
-        LinearLayout controls = card(); heading(controls, "手动姿态 · 角度相对水平面");
-        slider(controls, "大臂", -10, 70, boom, v -> boom = v, "°");
-        slider(controls, "小臂", -100, 10, stick, v -> stick = v, "°");
-        slider(controls, "铲斗", -110, 10, bucket, v -> bucket = v, "°");
-        slider(controls, "横向偏移", -4, 4, lateral, v -> lateral = v, " m");
+        LinearLayout controls = card(); heading(controls, useOriginal ? "原版完整输入回放" : "手动姿态 · 角度相对水平面");
+        if (useOriginal) {
+            controls.addView(text("GNSS、机身/大臂/小臂/铲斗姿态及天线参数均来自原版回放。这里的设计高差仍由本版设计面计算。", 13, MUTED, false));
+            slider(controls, "设计中心线偏移", -4, 4, lateral, v -> lateral = v, " m");
+        } else {
+            slider(controls, "大臂", -10, 70, boom, v -> boom = v, "°");
+            slider(controls, "小臂", -100, 10, stick, v -> stick = v, "°");
+            slider(controls, "铲斗", -110, 10, bucket, v -> bucket = v, "°");
+            slider(controls, "横向偏移", -4, 4, lateral, v -> lateral = v, " m");
+        }
         content.addView(controls); gap(14);
         action("保存当前施工点", true, this::saveRecord);
         action("返回修改设计", false, () -> { pause(); stage = 2; showPage(); });
@@ -185,14 +252,23 @@ public final class MainActivity extends Activity {
         playing = false; handler.removeCallbacks(tick);
         if (playButton != null) playButton.setText("播放演示");
     }
-    private PoseSolver.Pose currentPose() { return solver.solve(machine, replay.get(frame).z, boom, stick, bucket, lateral); }
+    private PoseSolver.Pose currentPose() {
+        if (useOriginal) {
+            if (original == null) throw new IllegalStateException("原版计算会话未建立");
+            return original.pose(frame, lateral);
+        }
+        return solver.solve(machine, replay.get(frame).z, boom, stick, bucket, lateral);
+    }
     private void renderGuidance() {
         if (stage != 3 || profile == null || replay == null) return;
-        PoseSolver.Pose pose = currentPose(); Guidance g = new Guidance(design, pose);
+        PoseSolver.Pose pose;
+        try { pose = currentPose(); }
+        catch (RuntimeException e) { pause(); deltaText.setText("计算已停止"); statusText.setText(e.getMessage()); coordinateText.setText(""); profile.clear(); return; }
+        Guidance g = new Guidance(design, pose);
         deltaText.setText(String.format(Locale.CHINA, "%+.3f m", g.delta));
         deltaText.setTextColor(g.onGrade ? TEAL : g.delta > 0 ? 0xffa56a16 : 0xffbf514b);
         statusText.setText(g.instruction);
-        coordinateText.setText(String.format(Locale.CHINA, "斗齿高程  %.3f m     设计高程  %.3f m\n前方伸距  %.2f m     横向偏移  %+.2f m", pose.elevation, g.target, pose.reach, lateral));
+        coordinateText.setText(String.format(Locale.CHINA, "斗齿高程  %.3f m     设计高程  %.3f m\n水平距离  %.2f m     横向偏移  %+.2f m", pose.elevation, g.target, pose.reach, pose.lateral));
         replayText.setText(String.format(Locale.CHINA, "演示 GNSS  ·  第 %d / %d 帧  ·  %.1f s", frame + 1, replay.count(), frame * replay.intervalMs / 1000.0));
         profile.update(design, pose);
     }
@@ -201,13 +277,20 @@ public final class MainActivity extends Activity {
             PoseSolver.Pose pose = currentPose(); Guidance g = new Guidance(design, pose); ReplaySource.Frame gnss = replay.get(frame);
             JSONObject row = new JSONObject();
             row.put("time", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss Z", Locale.ROOT).format(new Date()));
-            row.put("machine", machine.name); row.put("mode", mode.name()); row.put("frame", frame + 1);
+            row.put("machine", machineLabel()); row.put("mode", mode.name()); row.put("frame", frame + 1);
             row.put("gnssX", gnss.x); row.put("gnssY", gnss.y); row.put("gnssZ", gnss.z);
-            row.put("tipZ", pose.elevation); row.put("targetZ", g.target); row.put("delta", g.delta); row.put("lateral", lateral);
-            row.put("boomLength", machine.boom); row.put("stickLength", machine.stick); row.put("bucketLength", machine.bucket);
-            row.put("boomAngle", boom); row.put("stickAngle", stick); row.put("bucketAngle", bucket);
+            row.put("tipZ", pose.elevation); row.put("targetZ", g.target); row.put("delta", g.delta); row.put("lateral", pose.lateral);
+            if (useOriginal) {
+                WajiBackend.Result r = original.result(); row.put("nativeX", r.x); row.put("nativeY", r.y); row.put("nativeZ", r.z);
+                row.put("nativeLeftZ", r.leftZ); row.put("nativeRightZ", r.rightZ); row.put("nativeHeading", r.heading);
+                row.put("nativeProfile", original.profile.canonicalJson); row.put("nativeFrame", original.input(frame).json);
+                row.put("designCenterlineOffset", lateral); row.put("librarySha256", CORE_HASH);
+            } else {
+                row.put("boomLength", machine.boom); row.put("stickLength", machine.stick); row.put("bucketLength", machine.bucket);
+                row.put("boomAngle", boom); row.put("stickAngle", stick); row.put("bucketAngle", bucket);
+            }
             row.put("surface", design.surface); row.put("depth", design.depth); row.put("width", design.width); row.put("sideRatio", design.sideRatio);
-            row.put("solver", "demo-planar-v1"); records.append(row); toast("施工点已保存");
+            row.put("solver", useOriginal ? "original-bcCore-" + CORE_HASH : "demo-planar-v1"); records.append(row); toast("施工点已保存");
         } catch (Exception e) { showError("保存失败：" + e.getMessage()); }
     }
     private void historyPage() {
@@ -295,7 +378,7 @@ public final class MainActivity extends Activity {
     private void toast(String value) { Toast.makeText(this, value, Toast.LENGTH_SHORT).show(); }
     private void showError(String value) { new AlertDialog.Builder(this).setTitle("请检查").setMessage(value).setPositiveButton("知道了", null).show(); }
     @Override protected void onPause() { pause(); super.onPause(); }
-    @Override protected void onDestroy() { handler.removeCallbacksAndMessages(null); super.onDestroy(); }
+    @Override protected void onDestroy() { handler.removeCallbacksAndMessages(null); closeOriginal(); super.onDestroy(); }
     @Override public void onBackPressed() {
         rememberFields(); pause(); restore = null;
         if (stage == 4) stage = previousStage; else if (stage > 1) stage--; else { super.onBackPressed(); return; }
@@ -304,6 +387,7 @@ public final class MainActivity extends Activity {
     @Override protected void onSaveInstanceState(Bundle state) {
         super.onSaveInstanceState(state); state.putInt("stage", stage); state.putInt("previousStage", previousStage);
         state.putString("mode", mode.name()); state.putInt("frame", frame); state.putDouble("boom", boom);
+        state.putBoolean("useOriginal", useOriginal);
         state.putDouble("stick", stick); state.putDouble("bucket", bucket); state.putDouble("lateral", lateral);
         rememberFields(); for (String key : drafts.keySet()) state.putString("field_" + key, drafts.get(key));
     }

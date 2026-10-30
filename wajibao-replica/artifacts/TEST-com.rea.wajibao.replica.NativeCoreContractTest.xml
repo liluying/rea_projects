@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.rea.wajibao.replica.NativeCoreContractTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-10-30T01:39:20" hostname="03a42cf0d5e5" time="0.743">
+  <properties/>
+  <testcase name="malformedProfileCannotSilentlyDefaultMissingCalibration" classname="com.rea.wajibao.replica.NativeCoreContractTest" time="0.064"/>
+  <testcase name="convertsSensorDegreesButPreservesPositionAndAntennaMetres" classname="com.rea.wajibao.replica.NativeCoreContractTest" time="0.159"/>
+  <testcase name="invalidInitializationClosesNativeObjectAndStops" classname="com.rea.wajibao.replica.NativeCoreContractTest" time="0.043"/>
+  <testcase name="rejectsZeroOutputsForNonzeroInputAndNonfiniteNativeResults" classname="com.rea.wajibao.replica.NativeCoreContractTest" time="0.112"/>
+  <testcase name="preservesAllMachineAndAttachmentParametersInObservedOrder" classname="com.rea.wajibao.replica.NativeCoreContractTest" time="0.049"/>
+  <testcase name="nativeSignaturesHaveExactArityAndNativeModifier" classname="com.rea.wajibao.replica.NativeCoreContractTest" time="0.053"/>
+  <testcase name="callsNativeBackendInOrderAndClosesExactlyOnce" classname="com.rea.wajibao.replica.NativeCoreContractTest" time="0.149"/>
+  <testcase name="missingAuthorizationStopsBeforeCalculationWithNoFallback" classname="com.rea.wajibao.replica.NativeCoreContractTest" time="0.111"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

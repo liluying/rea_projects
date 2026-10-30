@@ -30,7 +30,7 @@ final class RecordStore {
         } catch (Exception e) { if (out != null) file.failWrite(out); throw e; }
     }
     String csv() throws Exception {
-        String[] keys = {"time", "machine", "mode", "frame", "gnssX", "gnssY", "gnssZ", "tipZ", "targetZ", "delta", "lateral", "boomLength", "stickLength", "bucketLength", "boomAngle", "stickAngle", "bucketAngle", "surface", "depth", "width", "sideRatio", "solver"};
+        String[] keys = {"time", "machine", "mode", "frame", "gnssX", "gnssY", "gnssZ", "tipZ", "targetZ", "delta", "lateral", "boomLength", "stickLength", "bucketLength", "boomAngle", "stickAngle", "bucketAngle", "surface", "depth", "width", "sideRatio", "solver", "nativeX", "nativeY", "nativeZ", "nativeLeftZ", "nativeRightZ", "nativeHeading", "designCenterlineOffset", "librarySha256", "nativeProfile", "nativeFrame"};
         StringBuilder csv = new StringBuilder("\uFEFF");
         row(csv, keys);
         JSONArray records = load();

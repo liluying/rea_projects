@@ -1,0 +1,20 @@
+plugins { id 'application' }
+java { sourceCompatibility = JavaVersion.VERSION_17; targetCompatibility = JavaVersion.VERSION_17 }
+dependencies {
+    implementation 'com.github.zhkl0228:unidbg-android:0.9.8'
+    implementation 'com.github.zhkl0228:unidbg-unicorn2:0.9.8'
+    implementation 'org.json:json:20240303'
+    implementation 'org.slf4j:slf4j-simple:2.0.13'
+}
+application { mainClass = 'com.rea.wajibao.validation.NativeSmoke' }
+sourceSets.main.java {
+    srcDir '../app/src/main/java'
+    include 'com/rea/wajibao/replica/nativecore/**', 'com/rea/wajibao/validation/**'
+    exclude '**/JniWajiBackend.java'
+}
+tasks.named('run', JavaExec) {
+    dependsOn ':app:extractOriginalCore'
+    args rootProject.file('app/build/generated/original-jni/arm64-v8a/libbcCore.so').absolutePath,
+            rootProject.file('app/src/main/assets').absolutePath,
+            rootProject.file('artifacts/native-runtime-validation.json').absolutePath
+}

@@ -1,0 +1,649 @@
+{
+  "librarySha256": "443a89c357df2277ea3e604db699188fc0b52eba3cd2306332f4e544b49bfa32",
+  "bindingCount": 107,
+  "missingExports": 0,
+  "bindings": [
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "CTiltCalculator_calculatePoleBottomAzimuthRadian",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_CTiltCalculator_1calculatePoleBottomAzimuthRadian",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "CTiltCalculator_calculatePoleTiltAngle",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_CTiltCalculator_1calculatePoleTiltAngle",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_DUAL_ANTENNA_ON_BODY_WIRED_ON_BODY_BOOM_STICK_BUCKET_get",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1DUAL_1ANTENNA_1ON_1BODY_1WIRED_1ON_1BODY_1BOOM_1STICK_1BUCKET_1get",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_DUAL_ANTENNA_ON_BOOM_WIRED_ON_BOOM_STICK_BUCKET_get",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1DUAL_1ANTENNA_1ON_1BOOM_1WIRED_1ON_1BOOM_1STICK_1BUCKET_1get",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_DUAL_ANTENNA_ON_BOOM_WIRED_ON_STICK_BUCKET_get",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1DUAL_1ANTENNA_1ON_1BOOM_1WIRED_1ON_1STICK_1BUCKET_1get",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_DUAL_ANTENNA_ON_GRAB_NO_SENSOR_get",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1DUAL_1ANTENNA_1ON_1GRAB_1NO_1SENSOR_1get",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_RTK_ON_ATTACHMENT_NO_SENSOR_get",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1RTK_1ON_1ATTACHMENT_1NO_1SENSOR_1get",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_RTK_ON_BOOM_WIRED_ON_STICK_BUCKET_get",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1RTK_1ON_1BOOM_1WIRED_1ON_1STICK_1BUCKET_1get",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_RTK_ON_BOOM_WIRED_ON_STICK_get",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1RTK_1ON_1BOOM_1WIRED_1ON_1STICK_1get",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_RTK_ON_BOOM_WIRELESS_ON_STICK_BUCKET_get",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1RTK_1ON_1BOOM_1WIRELESS_1ON_1STICK_1BUCKET_1get",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_RTK_ON_STICK_NO_SENSOR_get",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1RTK_1ON_1STICK_1NO_1SENSOR_1get",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_RTK_ON_STICK_WIRELESS_ON_BUCKET_get",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1RTK_1ON_1STICK_1WIRELESS_1ON_1BUCKET_1get",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_calculate",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1calculate",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getA",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getA",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getALeftInnerPoint",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getALeftInnerPoint",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getALeftOuterPoint",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getALeftOuterPoint",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getARightInnerPoint",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getARightInnerPoint",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getARightOuterPoint",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getARightOuterPoint",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getAb",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getAb",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getAd",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getAd",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getAiAzimuth",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getAiAzimuth",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getAj",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getAj",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getAk",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getAk",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getAkCorrect",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getAkCorrect",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getB",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getB",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getBc",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getBc",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getBodyCenter",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getBodyCenter",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getBoomBottom",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getBoomBottom",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getBucketCenterBottom",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getBucketCenterBottom",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getBucketFourthBottom",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getBucketFourthBottom",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getBucketLeftBottom",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getBucketLeftBottom",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getBucketRightBottom",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getBucketRightBottom",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getBucketSecondBottom",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getBucketSecondBottom",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getC",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getC",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getCLeftInnerPoint",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getCLeftInnerPoint",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getCRightInnerPoint",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getCRightInnerPoint",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getCd",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getCd",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getCrossIncline",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getCrossIncline",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getD",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getD",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getDLeftInnerPoint",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getDLeftInnerPoint",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getDLeftOuterPoint",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getDLeftOuterPoint",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getDRightInnerPoint",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getDRightInnerPoint",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getDRightOuterPoint",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getDRightOuterPoint",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getDebugInfo",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getDebugInfo",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getG",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getG",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getGLeftPoint",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getGLeftPoint",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getGRightPoint",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getGRightPoint",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getI",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getI",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getJ",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getJ",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getJaAzimuth",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getJaAzimuth",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getJg",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getJg",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getJgAzimuth",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getJgAzimuth",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getJzCorrect",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getJzCorrect",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getK",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getK",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getKLeftPoint",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getKLeftPoint",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getKRightPoint",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getKRightPoint",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getKz",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getKz",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getMn",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getMn",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getModelBodyCenter",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getModelBodyCenter",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getPitchCorrect",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getPitchCorrect",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getPq",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getPq",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getRtkPitch",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getRtkPitch",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getRtkPitch2",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getRtkPitch2",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getRtkRoll",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getRtkRoll",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getRtkRoll2",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getRtkRoll2",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getRtkYaw",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getRtkYaw",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getRtkYaw2",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getRtkYaw2",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getS",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getS",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getSt",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getSt",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getStickBottom",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getStickBottom",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getStickTop",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getStickTop",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getSw",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getSw",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getSwOffset",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getSwOffset",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getWaterHeight",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getWaterHeight",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getWjFrontAzimuth",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getWjFrontAzimuth",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getYawCorrect",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getYawCorrect",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getZ",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getZ",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getZkCorrect",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getZkCorrect",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_getZsCorrect",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1getZsCorrect",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_initAttachment",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1initAttachment",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_initMachine",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1initMachine",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_isAttachmentInitialized",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1isAttachmentInitialized",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_isMachineInitialized",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1isMachineInitialized",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_setAttachmentInitialized",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1setAttachmentInitialized",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_setBucketCenterBottomZ",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1setBucketCenterBottomZ",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_setBucketFourthBottomZ",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1setBucketFourthBottomZ",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_setBucketLeftBottomZ",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1setBucketLeftBottomZ",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_setBucketRightBottomZ",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1setBucketRightBottomZ",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_setBucketSecondBottomZ",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1setBucketSecondBottomZ",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_setDebug",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1setDebug",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_setMachineInitialized",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1setMachineInitialized",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_setModelSw",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1setModelSw",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_setModelSwHd",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1setModelSwHd",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_setModelSwOffset",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1setModelSwOffset",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_setPitchCorrect",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1setPitchCorrect",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "WajiInner_setYawCorrect",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_WajiInner_1setYawCorrect",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "delete_WajiInner",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_delete_1WajiInner",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.wajibao.wajibaoModule",
+      "method": "new_WajiInner",
+      "export": "Java_com_bingce_wajibao_wajibaoModule_new_1WajiInner",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.coordlib.proj4j.model.coordModelModule",
+      "method": "CCoordinate_getX",
+      "export": "Java_com_bingce_coordlib_proj4j_model_coordModelModule_CCoordinate_1getX",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.coordlib.proj4j.model.coordModelModule",
+      "method": "CCoordinate_getY",
+      "export": "Java_com_bingce_coordlib_proj4j_model_coordModelModule_CCoordinate_1getY",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.coordlib.proj4j.model.coordModelModule",
+      "method": "CCoordinate_getZ",
+      "export": "Java_com_bingce_coordlib_proj4j_model_coordModelModule_CCoordinate_1getZ",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.coordlib.proj4j.model.coordModelModule",
+      "method": "CCoordinate_setX",
+      "export": "Java_com_bingce_coordlib_proj4j_model_coordModelModule_CCoordinate_1setX",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.coordlib.proj4j.model.coordModelModule",
+      "method": "CCoordinate_setY",
+      "export": "Java_com_bingce_coordlib_proj4j_model_coordModelModule_CCoordinate_1setY",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.coordlib.proj4j.model.coordModelModule",
+      "method": "CCoordinate_setZ",
+      "export": "Java_com_bingce_coordlib_proj4j_model_coordModelModule_CCoordinate_1setZ",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.coordlib.proj4j.model.coordModelModule",
+      "method": "delete_CCoordinate",
+      "export": "Java_com_bingce_coordlib_proj4j_model_coordModelModule_delete_1CCoordinate",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.utils.SdkUtils",
+      "method": "isWjbValidate",
+      "export": "Java_com_bingce_utils_SdkUtils_isWjbValidate",
+      "exists": true
+    },
+    {
+      "class": "com.bingce.utils.SdkUtils",
+      "method": "isWjbEmulatorValidate",
+      "export": "Java_com_bingce_utils_SdkUtils_isWjbEmulatorValidate",
+      "exists": true
+    }
+  ]
+}

@@ -6,14 +6,46 @@ android {
         applicationId 'com.rea.wajibao.replica'
         minSdk 26
         targetSdk 34
-        versionCode 1
-        versionName '0.1.0-demo'
+        versionCode 2
+        versionName '0.2.0-native-bridge'
+        ndk { abiFilters 'arm64-v8a' }
     }
     compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
     buildTypes { release { minifyEnabled false } }
+    sourceSets.main.jniLibs.srcDir(layout.buildDirectory.dir('generated/original-jni'))
+    packaging { jniLibs { useLegacyPackaging = true; keepDebugSymbols += ['**/libbcCore.so'] } }
     testOptions { unitTests.includeAndroidResources = true }
     lint { abortOnError true }
 }
+
+// The unchanged original library is extracted locally, not committed as a second large binary.
+def originalApkPath = providers.gradleProperty('originalApk')
+        .orElse(providers.environmentVariable('ORIGINAL_APK'))
+        .orElse(rootProject.file('../wjb-bingce-arm64-v8a-release_1_0.apk').absolutePath)
+def nativeOutput = layout.buildDirectory.file('generated/original-jni/arm64-v8a/libbcCore.so')
+tasks.register('extractOriginalCore') {
+    inputs.file(originalApkPath).withPropertyName('originalApk')
+    outputs.file(nativeOutput)
+    doLast {
+        def apk = file(originalApkPath.get())
+        if (!apk.isFile() || apk.length() < 1000000)
+            throw new GradleException('Provide the original APK using -PoriginalApk=/path/to/app.apk or fetch the repository APK with Git LFS.')
+        def digest = java.security.MessageDigest.getInstance('SHA-256')
+        apk.withInputStream { input -> byte[] buf = new byte[1024 * 1024]; int n; while ((n = input.read(buf)) != -1) digest.update(buf, 0, n) }
+        if (digest.digest().encodeHex().toString() != '322c4be737c06f89e723cb7632ccb2c8ca3482a904ac4151d40dddc9b3788c34')
+            throw new GradleException('Original APK SHA-256 does not match the analyzed version.')
+        def zip = new java.util.zip.ZipFile(apk)
+        try {
+            def entry = zip.getEntry('lib/arm64-v8a/libbcCore.so')
+            if (entry == null) throw new GradleException('libbcCore.so is missing')
+            byte[] bytes = zip.getInputStream(entry).withCloseable { it.readAllBytes() }
+            if (java.security.MessageDigest.getInstance('SHA-256').digest(bytes).encodeHex().toString() != '443a89c357df2277ea3e604db699188fc0b52eba3cd2306332f4e544b49bfa32')
+                throw new GradleException('Original library SHA-256 mismatch')
+            def out = nativeOutput.get().asFile; out.parentFile.mkdirs(); out.bytes = bytes
+        } finally { zip.close() }
+    }
+}
+tasks.named('preBuild').configure { dependsOn tasks.named('extractOriginalCore') }
 dependencies {
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.robolectric:robolectric:4.14.1'

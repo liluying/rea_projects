@@ -1,3 +1,5 @@
+> v0.2 更新：原版 ARM64 库与 JNI 适配已接入，但授权未通过，尚未产生可用原版计算结果。请优先阅读 [最新状态](native-integration.md)。下文的平面演示流程仍可运行。
+
 # 与原 App 的对应关系和后续接入
 
 ## 本版已经实现
@@ -10,7 +12,7 @@
 
 此前恢复的关键链路是 `jc.e` → `t6.d.run(case 8)` → `wajibaoModule.WajiInner_calculate` → `libbcCore`。
 
-当前工程用 `ReplaySource` → `DemoPoseSolver` → `Guidance` 替代这条完整链路以跑通流程。`PoseSolver` 是当前演示边界；接入真实核心前需要扩展输入对象，承载完整 GNSS/IMU、安装模式、标定和附件参数，不能直接把三个平面角当作原 JNI 全量参数。
+平面演示模式用 `ReplaySource` → `DemoPoseSolver` → `Guidance` 跑通流程。原版模式另接 `OriginalFrame` → `OriginalSession` → 原 JNI，但当前在授权检查处停止。`PoseSolver` 是当前演示边界；接入真实核心前需要扩展输入对象，承载完整 GNSS/IMU、安装模式、标定和附件参数，不能直接把三个平面角当作原 JNI 全量参数。
 
 ## 尚待完成
 

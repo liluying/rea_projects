@@ -4,6 +4,9 @@ cd "$(dirname "$0")/.."
 export ANDROID_HOME="${ANDROID_HOME:-/workspace/.tools/android-sdk}"
 export ANDROID_USER_HOME="${ANDROID_USER_HOME:-/workspace/.cache/android}"
 export GRADLE_USER_HOME="${GRADLE_USER_HOME:-/workspace/.cache/gradle}"
+if [[ -z "${ORIGINAL_APK:-}" && -f /workspace/analysis/wjb/target.apk ]]; then
+  export ORIGINAL_APK=/workspace/analysis/wjb/target.apk
+fi
 if [[ -x /workspace/.tools/jdk21/bin/jlink && -z "${JAVA_HOME:-}" ]]; then
   export JAVA_HOME=/workspace/.tools/jdk21
 fi

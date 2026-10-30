@@ -13,4 +13,4 @@ cd wajibao-replica
 ./gradlew :app:assembleDebug :app:testDebugUnitTest :app:lintDebug
 ```
 
-此工程是可运行的模拟施工首版，尚未接入原版 VMP、原生求解器和真实设备，不等于完整恢复的原版工程。
+v0.2 已接入原版 ARM64 库及 JNI 完整参数，但 SDK 授权未通过，原版计算仍被拦截。平面演示可运行；VMP、真实设备和全部算法等价性尚未完成。详见 [原版核心接入状态](wajibao-replica/docs/native-integration.md)。

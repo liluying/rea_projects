@@ -20,5 +20,16 @@
       "normalZ"
     ],
     "usage": "Original demo GNSS input only; machine pivot and link angles are newly simulated, not original bucket outputs."
+  },
+  "nativeIntegration": {
+    "native_replay_sha256": "63eeb6c14ba6615caeeaba324385980b0dca0fa8544e8c2c6152204e4810787b",
+    "native_profile_sha256": "6529bdfe3e06ec9b582ecaba83ee987e6e9c9a3adc75beb7567edaa216680909",
+    "source_apk_sha256": "322c4be737c06f89e723cb7632ccb2c8ca3482a904ac4151d40dddc9b3788c34",
+    "work_mode": 5,
+    "mechanical_parameter_count": 32,
+    "attachment_parameter_count": 7,
+    "angle_conversion": "Observed jc.e callbacks convert input degrees to JNI radians",
+    "production_native_outputs_validated": false,
+    "authorization_status": "BLOCKED_SDK_AUTHORIZATION"
   }
 }

@@ -177,16 +177,15 @@ document.getElementById(id).style.display = 'none';
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Lint Report: 4 warnings</span>
+      <span class="mdl-layout-title">Lint Report: 3 warnings</span>
       <div class="mdl-layout-spacer"></div>
-      <nav class="mdl-navigation mdl-layout--large-screen-only">Check performed at Fri Oct 30 00:38:56 UTC 2026 by AGP (8.7.3)</nav>
+      <nav class="mdl-navigation mdl-layout--large-screen-only">Check performed at Fri Oct 30 01:39:28 UTC 2026 by AGP (8.7.3)</nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Issue Types</span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="#overview"><i class="material-icons">dashboard</i>Overview</a>
-      <a class="mdl-navigation__link" href="#OldTargetApi"><i class="material-icons warning-icon">warning</i>Target SDK attribute is not targeting latest version (1)</a>
       <a class="mdl-navigation__link" href="#DataExtractionRules"><i class="material-icons warning-icon">warning</i>Missing data extraction rules (1)</a>
       <a class="mdl-navigation__link" href="#DrawAllocation"><i class="material-icons warning-icon">warning</i>Memory allocations within drawing code (1)</a>
       <a class="mdl-navigation__link" href="#SetTextI18n"><i class="material-icons warning-icon">warning</i>TextView Internationalization (1)</a>
@@ -202,11 +201,6 @@ document.getElementById(id).style.display = 'none';
   </div>
               <div class="mdl-card__supporting-text">
 <table class="overview">
-<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Correctness">Correctness</a>
-</td></tr>
-<tr>
-<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
-<a href="#OldTargetApi">OldTargetApi</a>: Target SDK attribute is not targeting latest version</td></tr>
 <tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Security">Security</a>
 </td></tr>
 <tr>
@@ -228,59 +222,6 @@ document.getElementById(id).style.display = 'none';
 <br/>              </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="OverviewCardLink" onclick="hideid('OverviewCard');">
-Dismiss</button>            </div>
-            </div>
-          </section>
-<a name="Correctness"></a>
-<a name="OldTargetApi"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="OldTargetApiCard" style="display: block;">
-            <div class="mdl-card mdl-cell mdl-cell--12-col">
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">Target SDK attribute is not targeting latest version</h2>
-  </div>
-              <div class="mdl-card__supporting-text">
-<div class="issue">
-<div class="warningslist">
-<span class="location"><a href="../../build.gradle">../../build.gradle</a>:8</span>: <span class="message">Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the <code>android.os.Build.VERSION_CODES</code> javadoc for details.</span><br /><pre class="errorlines">
-<span class="lineno">  5 </span>    defaultConfig {
-<span class="lineno">  6 </span>        applicationId <span class="string">'com.rea.wajibao.replica'</span>
-<span class="lineno">  7 </span>        minSdk <span class="number">26</span>
-<span class="caretline"><span class="lineno">  8 </span>        <span class="warning">targetSdk <span class="number">34</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  9 </span>        versionCode <span class="number">1</span>
-<span class="lineno"> 10 </span>        versionName <span class="string">'0.1.0-demo'</span>
-<span class="lineno"> 11 </span>    }
-</pre>
-
-</div>
-<div class="metadata"><div class="explanation" id="explanationOldTargetApi" style="display: none;">
-When your application runs on a version of Android that is more recent than your <code>targetSdkVersion</code> specifies that it has been tested with, various compatibility modes kick in. This ensures that your application continues to work, but it may look out of place. For example, if the <code>targetSdkVersion</code> is less than 14, your app may get an option button in the UI.<br/>
-<br/>
-To fix this issue, set the <code>targetSdkVersion</code> to the highest available value. Then test your app to make sure everything works correctly. You may want to consult the compatibility notes to see what changes apply to each version you are adding support for: <a href="https://developer.android.com/reference/android/os/Build.VERSION_CODES.html">https://developer.android.com/reference/android/os/Build.VERSION_CODES.html</a> as well as follow this guide:<br/>
-<a href="https://developer.android.com/distribute/best-practices/develop/target-sdk.html">https://developer.android.com/distribute/best-practices/develop/target-sdk.html</a><br/><div class="moreinfo">More info: <ul><li><a href="https://developer.android.com/distribute/best-practices/develop/target-sdk.html">https://developer.android.com/distribute/best-practices/develop/target-sdk.html</a>
-<li><a href="https://developer.android.com/reference/android/os/Build.VERSION_CODES.html">https://developer.android.com/reference/android/os/Build.VERSION_CODES.html</a>
-</ul></div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
-To suppress this error, use the issue id "OldTargetApi" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-<br/></div>
-</div>
-</div>
-<div class="chips">
-<span class="mdl-chip">
-    <span class="mdl-chip__text">OldTargetApi</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Correctness</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Warning</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Priority 6/10</span>
-</span>
-</div>
-              </div>
-              <div class="mdl-card__actions mdl-card--border">
-<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationOldTargetApiLink" onclick="reveal('explanationOldTargetApi');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="OldTargetApiCardLink" onclick="hideid('OldTargetApiCard');">
 Dismiss</button>            </div>
             </div>
           </section>
@@ -343,14 +284,14 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../src/main/java/com/rea/wajibao/replica/ProfileView.java">../../src/main/java/com/rea/wajibao/replica/ProfileView.java</a>:42</span>: <span class="message">Avoid object allocations during draw/layout operations (preallocate and reuse instead)</span><br /><pre class="errorlines">
-<span class="lineno"> 39 </span>      paint.setColor(Color.rgb(<span class="number">159</span>, <span class="number">185</span>, <span class="number">185</span>));
-<span class="lineno"> 40 </span>      c.drawText(String.format(Locale.ROOT, <span class="string">"%.1f"</span>, high - range * i / <span class="number">4</span>), <span class="number">5</span> * density, y + <span class="number">4</span> * density, paint);
-<span class="lineno"> 41 </span>  }
-<span class="caretline"><span class="lineno"> 42 </span>  Path line = <span class="warning"><span class="keyword">new</span> Path()</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 43 </span>  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">320</span>; i++) {
-<span class="lineno"> 44 </span>      <span class="keyword">double</span> offset = -span + <span class="number">2</span> * span * i / <span class="number">320</span>;
-<span class="lineno"> 45 </span>      <span class="keyword">float</span> x = l + (r - l) * i / <span class="number">320</span>;
+<span class="location"><a href="../../src/main/java/com/rea/wajibao/replica/ProfileView.java">../../src/main/java/com/rea/wajibao/replica/ProfileView.java</a>:43</span>: <span class="message">Avoid object allocations during draw/layout operations (preallocate and reuse instead)</span><br /><pre class="errorlines">
+<span class="lineno"> 40 </span>      paint.setColor(Color.rgb(<span class="number">159</span>, <span class="number">185</span>, <span class="number">185</span>));
+<span class="lineno"> 41 </span>      c.drawText(String.format(Locale.ROOT, <span class="string">"%.1f"</span>, high - range * i / <span class="number">4</span>), <span class="number">5</span> * density, y + <span class="number">4</span> * density, paint);
+<span class="lineno"> 42 </span>  }
+<span class="caretline"><span class="lineno"> 43 </span>  Path line = <span class="warning"><span class="keyword">new</span> Path()</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 44 </span>  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">320</span>; i++) {
+<span class="lineno"> 45 </span>      <span class="keyword">double</span> offset = -span + <span class="number">2</span> * span * i / <span class="number">320</span>;
+<span class="lineno"> 46 </span>      <span class="keyword">float</span> x = l + (r - l) * i / <span class="number">320</span>;
 </pre>
 
 </div>
@@ -394,14 +335,14 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../src/main/java/com/rea/wajibao/replica/MainActivity.java">../../src/main/java/com/rea/wajibao/replica/MainActivity.java</a>:253</span>: <span class="message">Do not concatenate text displayed with <code>setText</code>. Use resource string with placeholders.</span><br /><pre class="errorlines">
-<span class="lineno"> 250 </span>  seek.setOnSeekBarChangeListener(<span class="keyword">new</span> SeekBar.OnSeekBarChangeListener() {
-<span class="lineno"> 251 </span>      <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="keyword">void</span> onProgressChanged(SeekBar s, <span class="keyword">int</span> progress, <span class="keyword">boolean</span> fromUser) {
-<span class="lineno"> 252 </span>          <span class="keyword">if</span> (!fromUser) <span class="keyword">return</span>; pause(); <span class="keyword">double</span> value = min + (max - min) * progress / <span class="number">1000</span>;
-<span class="caretline"><span class="lineno"> 253 </span>          change.set(value); label.setText(<span class="warning">title + <span class="string">"  "</span> + String.format(Locale.CHINA, <span class="string">"%.2f"</span>, value) + unit</span>); renderGuidance();</span>
-<span class="lineno"> 254 </span>      }
-<span class="lineno"> 255 </span>      <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="keyword">void</span> onStartTrackingTouch(SeekBar s) { pause(); }
-<span class="lineno"> 256 </span>      <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="keyword">void</span> onStopTrackingTouch(SeekBar s) { }
+<span class="location"><a href="../../src/main/java/com/rea/wajibao/replica/MainActivity.java">../../src/main/java/com/rea/wajibao/replica/MainActivity.java</a>:336</span>: <span class="message">Do not concatenate text displayed with <code>setText</code>. Use resource string with placeholders.</span><br /><pre class="errorlines">
+<span class="lineno"> 333 </span>  seek.setOnSeekBarChangeListener(<span class="keyword">new</span> SeekBar.OnSeekBarChangeListener() {
+<span class="lineno"> 334 </span>      <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="keyword">void</span> onProgressChanged(SeekBar s, <span class="keyword">int</span> progress, <span class="keyword">boolean</span> fromUser) {
+<span class="lineno"> 335 </span>          <span class="keyword">if</span> (!fromUser) <span class="keyword">return</span>; pause(); <span class="keyword">double</span> value = min + (max - min) * progress / <span class="number">1000</span>;
+<span class="caretline"><span class="lineno"> 336 </span>          change.set(value); label.setText(<span class="warning">title + <span class="string">"  "</span> + String.format(Locale.CHINA, <span class="string">"%.2f"</span>, value) + unit</span>); renderGuidance();</span>
+<span class="lineno"> 337 </span>      }
+<span class="lineno"> 338 </span>      <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="keyword">void</span> onStartTrackingTouch(SeekBar s) { pause(); }
+<span class="lineno"> 339 </span>      <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="keyword">void</span> onStopTrackingTouch(SeekBar s) { }
 </pre>
 
 </div>

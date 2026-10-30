@@ -1,0 +1,11 @@
+{
+  "frameCounts": {
+    "level": 881,
+    "trenching": 576
+  },
+  "allRequiredFieldsPresentAndFinite": true,
+  "positionSnapshotsMatch": true,
+  "replayIntervalsMatch": true,
+  "nativeReplaySha256": "63eeb6c14ba6615caeeaba324385980b0dca0fa8544e8c2c6152204e4810787b",
+  "productionOutputValidated": false
+}

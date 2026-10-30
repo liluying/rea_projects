@@ -1,7 +1,7 @@
 {
   "built_at": "2026-10-30 Asia/Shanghai",
   "application_id": "com.rea.wajibao.replica",
-  "version": "0.1.0-demo",
+  "version": "0.2.0-native-bridge",
   "min_sdk": 26,
   "target_sdk": 34,
   "compile_sdk": 35,
@@ -12,11 +12,19 @@
   "unit_tests": [
     {
       "name": "com.rea.wajibao.replica.MainActivityFlowTest",
-      "tests": "4",
+      "tests": "5",
       "failures": "0",
       "errors": "0",
       "skipped": "0",
-      "time": "19.772"
+      "time": "8.804"
+    },
+    {
+      "name": "com.rea.wajibao.replica.NativeCoreContractTest",
+      "tests": "8",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.743"
     },
     {
       "name": "com.rea.wajibao.replica.core.ConstructionTest",
@@ -24,17 +32,27 @@
       "failures": "0",
       "errors": "0",
       "skipped": "0",
-      "time": "0.006"
+      "time": "0.007"
     }
   ],
-  "test_count": 11,
+  "test_count": 20,
   "lint_errors": 0,
-  "lint_warnings": 4,
+  "lint_warnings": 3,
   "apk_v2_signature_verified": true,
-  "apk_sha256": "73463a36e4f84b270aefe52c195016b2459b648e18057452371a5cd0f803071e",
-  "apk_bytes": 64928,
+  "apk_sha256": "be3e86dbd725743a85957ad9a5b9760db66013539d0ca9e93de7b100708f8629",
+  "apk_bytes": 27331171,
+  "apk_abi": [
+    "arm64-v8a"
+  ],
   "android_real_device_tested": false,
   "robolectric_sdk": 28,
-  "original_solver_integrated": false,
+  "original_library_packaged": true,
+  "original_library_unmodified": true,
+  "original_jni_binding_count": 107,
+  "original_native_calculation_available": false,
+  "original_native_status": "BLOCKED_SDK_AUTHORIZATION",
+  "native_runtime_diagnostics_passed": true,
+  "native_mode_initialization_checked": 5,
+  "native_mode_calculation_validated": [],
   "original_app_equivalence_verified": false
 }

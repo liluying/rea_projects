@@ -16,6 +16,7 @@ final class ProfileView extends View {
     private Design design;
     private PoseSolver.Pose pose;
     ProfileView(Context context) { super(context); setLayerType(View.LAYER_TYPE_SOFTWARE, null); }
+    void clear() { design = null; pose = null; setContentDescription("计算不可用"); invalidate(); }
     void update(Design d, PoseSolver.Pose p) {
         design = d; pose = p;
         setContentDescription(String.format(Locale.CHINA, "%s横断面，斗齿高程 %.3f 米，设计高程 %.3f 米",

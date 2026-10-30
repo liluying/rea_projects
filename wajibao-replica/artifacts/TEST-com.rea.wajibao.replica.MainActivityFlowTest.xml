@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.rea.wajibao.replica.MainActivityFlowTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-30T00:38:13" hostname="03a42cf0d5e5" time="19.772">
+<testsuite name="com.rea.wajibao.replica.MainActivityFlowTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-30T01:39:11" hostname="03a42cf0d5e5" time="8.804">
   <properties/>
-  <testcase name="rotationPreservesLiveFrameAndDesign" classname="com.rea.wajibao.replica.MainActivityFlowTest" time="17.999"/>
-  <testcase name="playbackStopsWhileActivityIsPaused" classname="com.rea.wajibao.replica.MainActivityFlowTest" time="0.665"/>
-  <testcase name="invalidDraftDoesNotCorruptPersistedConfiguration" classname="com.rea.wajibao.replica.MainActivityFlowTest" time="0.603"/>
-  <testcase name="levelAndTrenchSavePersistentRecordsAndExportCsv" classname="com.rea.wajibao.replica.MainActivityFlowTest" time="0.504"/>
+  <testcase name="rotationPreservesLiveFrameAndDesign" classname="com.rea.wajibao.replica.MainActivityFlowTest" time="5.471"/>
+  <testcase name="playbackStopsWhileActivityIsPaused" classname="com.rea.wajibao.replica.MainActivityFlowTest" time="0.696"/>
+  <testcase name="unavailableOriginalCoreNeverSavesFakeNativeRecords" classname="com.rea.wajibao.replica.MainActivityFlowTest" time="1.116"/>
+  <testcase name="invalidDraftDoesNotCorruptPersistedConfiguration" classname="com.rea.wajibao.replica.MainActivityFlowTest" time="0.747"/>
+  <testcase name="levelAndTrenchSavePersistentRecordsAndExportCsv" classname="com.rea.wajibao.replica.MainActivityFlowTest" time="0.773"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

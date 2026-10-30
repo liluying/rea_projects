@@ -29,6 +29,7 @@ public class MainActivityFlowTest {
     @Before public void clearData() throws Exception {
         Application app = RuntimeEnvironment.getApplication();
         app.getSharedPreferences("replica", Context.MODE_PRIVATE).edit().clear().commit();
+        app.getSharedPreferences("replica", Context.MODE_PRIVATE).edit().putBoolean("useOriginal", false).commit();
         new RecordStore(app).clear();
     }
     private View find(View root, java.util.function.Predicate<View> predicate) {
@@ -91,6 +92,16 @@ public class MainActivityFlowTest {
             click(a, "进入模拟施工"); click(a, "下一帧"); controller.recreate();
             click(controller.get(), "保存当前施工点"); JSONObject row = new RecordStore(controller.get()).load().getJSONObject(0);
             assertEquals(72.5, row.getDouble("targetZ"), 0); assertEquals(2, row.getInt("frame"));
+        }
+    }
+    @Test public void unavailableOriginalCoreNeverSavesFakeNativeRecords() throws Exception {
+        try (ActivityController<MainActivity> controller = Robolectric.buildActivity(MainActivity.class).setup()) {
+            MainActivity a = controller.get(); click(a, "○ 原版核心 · ARM64");
+            click(a, "下一步 · 设计参数"); click(a, "进入模拟施工");
+            assertNotNull(org.robolectric.shadows.ShadowAlertDialog.getLatestAlertDialog());
+            assertEquals(0, new RecordStore(a).load().length());
+            assertNull(find(a.getWindow().getDecorView(), v -> v instanceof Button && ((Button) v).getText().toString().equals("保存当前施工点")));
+            assertTrue(a.getSharedPreferences("replica", Context.MODE_PRIVATE).getBoolean("useOriginal", false));
         }
     }
 }

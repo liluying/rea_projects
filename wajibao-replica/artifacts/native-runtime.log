@@ -1,0 +1,173 @@
+Picked up JAVA_TOOL_OPTIONS:  -Duser.home=/workspace/.cache/android-home -Dhttps.proxyHost=proxy -Dhttps.proxyPort=8080 -Dhttp.proxyHost=proxy -Dhttp.proxyPort=8080 -Djavax.net.ssl.trustStore=/workspace/.cache/java/cacerts
+> Task :app:extractOriginalCore UP-TO-DATE
+> Task :native-validation:compileJava
+> Task :native-validation:processResources NO-SOURCE
+> Task :native-validation:classes
+
+> Task :native-validation:run
+Picked up JAVA_TOOL_OPTIONS:  -Duser.home=/workspace/.cache/android-home -Dhttps.proxyHost=proxy -Dhttps.proxyPort=8080 -Dhttp.proxyHost=proxy -Dhttp.proxyPort=8080 -Djavax.net.ssl.trustStore=/workspace/.cache/java/cacerts
+Oct 30, 2026 1:42:01 AM com.github.unidbg.linux.AndroidElfLoader loadInternal
+INFO: libbcCore.so load dependency libEGL.so failed
+Oct 30, 2026 1:42:01 AM com.github.unidbg.linux.AndroidElfLoader loadInternal
+INFO: libbcCore.so load dependency libGLESv2.so failed
+{
+  "actualOriginalNativeCodeExecuted": true,
+  "workMode": 5,
+  "originalLibraryLoaded": true,
+  "unauthorizedApplicationComputeBlocked": true,
+  "aapcs64PackingChecked": true,
+  "nativeBinaryModified": false,
+  "sampleCount": 16,
+  "librarySha256": "443a89c357df2277ea3e604db699188fc0b52eba3cd2306332f4e544b49bfa32",
+  "allTenModeConstantsVerified": true,
+  "diagnosticsPassed": true,
+  "workAuthorized": false,
+  "machineInitialized": true,
+  "attachmentInitialized": true,
+  "configuredAb": 0.21,
+  "rawDiagnosticCalls": [
+    {
+      "mode": "level",
+      "validForConstruction": false,
+      "frameIndex": 0,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "mode": "level",
+      "validForConstruction": false,
+      "frameIndex": 1,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "mode": "level",
+      "validForConstruction": false,
+      "frameIndex": 2,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "mode": "level",
+      "validForConstruction": false,
+      "frameIndex": 3,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "mode": "level",
+      "validForConstruction": false,
+      "frameIndex": 4,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "mode": "level",
+      "validForConstruction": false,
+      "frameIndex": 5,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "mode": "level",
+      "validForConstruction": false,
+      "frameIndex": 6,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "mode": "level",
+      "validForConstruction": false,
+      "frameIndex": 7,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "mode": "trenching",
+      "validForConstruction": false,
+      "frameIndex": 0,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "mode": "trenching",
+      "validForConstruction": false,
+      "frameIndex": 1,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "mode": "trenching",
+      "validForConstruction": false,
+      "frameIndex": 2,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "mode": "trenching",
+      "validForConstruction": false,
+      "frameIndex": 3,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "mode": "trenching",
+      "validForConstruction": false,
+      "frameIndex": 4,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "mode": "trenching",
+      "validForConstruction": false,
+      "frameIndex": 5,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "mode": "trenching",
+      "validForConstruction": false,
+      "frameIndex": 6,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "mode": "trenching",
+      "validForConstruction": false,
+      "frameIndex": 7,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  ],
+  "backend": "Unidbg 0.9.8 / Unicorn2 ARM64 / AndroidResolver23",
+  "checkedMachineArguments": {
+    "Ab": 0.21,
+    "Pq": 0.305,
+    "Sw": 0.87,
+    "AkCorrect": 0.06632251126369536,
+    "ZkCorrect": -1.51614941273146
+  },
+  "originalAppUiCompared": false,
+  "demoAuthorized": false,
+  "status": "BLOCKED_SDK_AUTHORIZATION",
+  "nativeCalculationValidated": false
+}
+
+BUILD SUCCESSFUL in 6s
+3 actionable tasks: 2 executed, 1 up-to-date
