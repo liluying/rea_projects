@@ -1,0 +1,40 @@
+{
+  "built_at": "2026-10-30 Asia/Shanghai",
+  "application_id": "com.rea.wajibao.replica",
+  "version": "0.1.0-demo",
+  "min_sdk": 26,
+  "target_sdk": 34,
+  "compile_sdk": 35,
+  "gradle": "8.9",
+  "agp": "8.7.3",
+  "jdk": "Temurin 21.0.8+9",
+  "assembleDebug": "PASS",
+  "unit_tests": [
+    {
+      "name": "com.rea.wajibao.replica.MainActivityFlowTest",
+      "tests": "4",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "19.772"
+    },
+    {
+      "name": "com.rea.wajibao.replica.core.ConstructionTest",
+      "tests": "7",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.006"
+    }
+  ],
+  "test_count": 11,
+  "lint_errors": 0,
+  "lint_warnings": 4,
+  "apk_v2_signature_verified": true,
+  "apk_sha256": "73463a36e4f84b270aefe52c195016b2459b648e18057452371a5cd0f803071e",
+  "apk_bytes": 64928,
+  "android_real_device_tested": false,
+  "robolectric_sdk": 28,
+  "original_solver_integrated": false,
+  "original_app_equivalence_verified": false
+}

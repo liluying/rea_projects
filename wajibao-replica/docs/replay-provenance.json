@@ -1,0 +1,24 @@
+{
+  "level": {
+    "source": "APK assets/demoData/level/demo_level_data.json; normalized replay extracted in prior analysis",
+    "source_replay_sha256": "b2e47348912977b66d37a32aabe85d14f6b757229e535a37f2322efed8e36a15",
+    "frames": 881,
+    "fields": [
+      "normalX",
+      "normalY",
+      "normalZ"
+    ],
+    "usage": "Original demo GNSS input only; machine pivot and link angles are newly simulated, not original bucket outputs."
+  },
+  "trenching": {
+    "source": "APK assets/demoData/trenching/demo_trenching_data.json; normalized replay extracted in prior analysis",
+    "source_replay_sha256": "43b8dd184d14b4a4a3affc44cbf36e80c08392b7f41bd36251bd28aeb4c69ed6",
+    "frames": 576,
+    "fields": [
+      "normalX",
+      "normalY",
+      "normalZ"
+    ],
+    "usage": "Original demo GNSS input only; machine pivot and link angles are newly simulated, not original bucket outputs."
+  }
+}
