@@ -1,0 +1,24 @@
+原始 libbcCore.so 地址	恢复符号	证据文件
+0x2075a70	bingce::CTriangle::computeZOnPlane(double, double) const	2075a70.c
+0x21aa848	bingce::IMUtoNEUConverter::eulerToQuaternion(double, double, double)	21aa848.c
+0x21aa934	bingce::IMUtoNEUConverter::rotateVectorByQuaternion(bingce::ImuQuaternion const&, bingce::ImuVector3D const&)	21aa934.c
+0x21aa9d4	bingce::IMUtoNEUConverter::imuToNEU(bingce::ImuVector3D const&, bingce::ImuVector3D const&, double, double, double)	21aa9d4.c
+0x21aab58	bingce::IMUtoNEUConverter::neuToIMU(bingce::ImuVector3D const&, bingce::ImuVector3D const&, double, double, double)	21aab58.c
+0x21aacdc	bingce::IMUtoNEUConverter::degreesToRadians(double)	21aacdc.c
+0x21aacfc	bingce::IMUtoNEUConverter::radiansToDegrees(double)	21aacfc.c
+0x21aad30	bingce::ImuQuaternion::multiply(bingce::ImuQuaternion const&) const	21aad30.c
+0x21aad88	bingce::ImuQuaternion::conjugate() const	21aad88.c
+0x21aada4	bingce::ImuQuaternion::norm() const	21aada4.c
+0x21aadc4	bingce::ImuQuaternion::normalize() const	21aadc4.c
+0x21aaf74	bingce::ImuVector3D::add(bingce::ImuVector3D const&) const	21aaf74.c
+0x21aaf94	bingce::ImuVector3D::subtract(bingce::ImuVector3D const&) const	21aaf94.c
+0x21aafb4	bingce::ImuVector3D::dot(bingce::ImuVector3D const&) const	21aafb4.c
+0x23e4db0	bingce::evcavator::ExcavatorPoseCalculator::calculateScaleX(float, float)	23e4db0.c
+0x23e4e24	bingce::evcavator::ExcavatorPoseCalculator::distance(bingce::evcavator::Vec3 const&, bingce::evcavator::Vec3 const&)	23e4e24.c
+0x23e4efc	bingce::evcavator::normalCandidate(bingce::evcavator::Vec3 const&, bingce::evcavator::Vec3 const&, bingce::evcavator::Vec3 const&)	23e4efc.c
+0x23e4f60	bingce::evcavator::calculateBestPlaneNormal(bingce::evcavator::Vec3 const&, bingce::evcavator::Vec3 const&, bingce::evcavator::Vec3 const&, bingce::evcavator::Vec3 const&)	23e4f60.c
+0x23e5190	bingce::evcavator::rotateX(bingce::evcavator::Vec3 const&, float)	23e5190.c
+0x23e520c	bingce::evcavator::rotateY(bingce::evcavator::Vec3 const&, float)	23e520c.c
+0x23e5284	bingce::evcavator::rotateZ(bingce::evcavator::Vec3 const&, float)	23e5284.c
+0x23e5ab8	bingce::evcavator::normalizeDegree(float)	23e5ab8.c
+0x23e5b14	bingce::evcavator::basisToEulerXYZ(bingce::evcavator::Vec3 const&, bingce::evcavator::Vec3 const&, bingce::evcavator::Vec3 const&)	23e5b14.c

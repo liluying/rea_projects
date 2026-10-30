@@ -1,0 +1,12 @@
+{
+  "scope": "Independent recovered math helpers; not complete excavator solver",
+  "tests": 24,
+  "failures": 0,
+  "errors": 0,
+  "cppImuSamples": 128,
+  "cppFixtureSha256": "6cc26482313e3f500b46085cd4e36310c85f93f8ebe3a804749fd13349bb182f",
+  "originalNativeNumericalEquivalenceValidated": false,
+  "assembleDebug": "PASS",
+  "lintDebug": "PASS",
+  "physicalDeviceTested": false
+}
